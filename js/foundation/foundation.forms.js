@@ -36,7 +36,7 @@
 
       var forms = this;
 
-      $('form.custom input[type="radio"],[type="checkbox"]', $(this.scope))
+      $('form.custom input[type="radio"],form.custom [type="checkbox"]', $(this.scope))
         .not('[data-customforms="disabled"]')
         .not('.' + this.settings.disable_class)
         .each(function(idx, sel){
@@ -155,7 +155,7 @@
 
             //store the old value in data
             $select.data('prevalue', $oldThis.html());
-            
+
             // Kick off full DOM change event
             if (typeof (document.createEvent) != 'undefined') {
               var event = document.createEvent('HTMLEvents');
@@ -265,7 +265,7 @@
       var $this = $(sel),
           type = $this.attr('type'),
           $span = $this.next('span.custom.' + type);
-          
+
       if (!$this.parent().hasClass('switch')) {
         $this.addClass('hidden-field');
       }
@@ -424,7 +424,7 @@
         this.cache[$customSelect.data('id')] = $listItems.length;
       }
     },
-    
+
     refresh_custom_selection: function ($select) {
       var selectedValue = $('option:selected', $select).text();
       $('a.current', $select.next()).text(selectedValue);
